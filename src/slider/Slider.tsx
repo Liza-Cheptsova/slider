@@ -6,16 +6,16 @@ export const Slider = ({ slides }: any) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const length = slides.length;
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setActiveIndex((current: number) => {
-  //       const res = current === length - 1 ? 0 : activeIndex + 1;
-  //       return res;
-  //     });
-  //   }, 3000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current: number) => {
+        const res = current === length - 1 ? 0 : activeIndex + 1;
+        return res;
+      });
+    }, 3000);
 
-  //   return () => clearInterval(interval);
-  // }, [activeIndex, length]);
+    return () => clearInterval(interval);
+  }, [activeIndex, length]);
 
   const nextSlideHandlet = () => {
     setActiveIndex(activeIndex === length - 1 ? 0 : activeIndex + 1);
